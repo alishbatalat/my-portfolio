@@ -42,12 +42,24 @@ section {
     left: 0;
 
     width: 100%;
+    padding: 25px 0;
 
     z-index: 1000;
 
-    padding: 25px 0;
+    background: transparent;
 
-    transition: 0.3s;
+    transition:
+        background 0.4s ease,
+        padding 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.header.scrolled {
+    background: rgba(15, 15, 15, 0.95);
+
+    padding: 15px 0;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
 }
 
 .nav-container {
@@ -147,8 +159,8 @@ section {
 
     margin-bottom: 35px;
 }
-
 .hero-button {
+
     display: inline-block;
 
     border: 2px solid white;
@@ -161,12 +173,84 @@ section {
 
     letter-spacing: 2px;
 
-    transition: 0.3s;
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
+
 .hero-button:hover {
+
     background: white;
+
     color: black;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.hero-button:active {
+
+    transform: translateY(-2px) scale(0.96);
+
+}
+
+/* =========================
+   HERO ENTRANCE ANIMATION
+========================= */
+
+.hero-small,
+.hero h1,
+.hero h2,
+.hero-button {
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    animation: heroReveal 0.8s ease forwards;
+}
+
+
+/* Animation delays */
+
+.hero-small {
+    animation-delay: 0.2s;
+}
+
+.hero h1 {
+    animation-delay: 0.4s;
+}
+
+.hero h2 {
+    animation-delay: 0.6s;
+}
+
+.hero-button {
+    animation-delay: 0.8s;
+}
+
+
+/* Hero animation */
+
+@keyframes heroReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
 .section-title {
     text-align: center;
@@ -358,6 +442,57 @@ section {
 
     transform: scale(1.1);
 }
+/* =========================
+   SCROLL REVEAL ANIMATIONS
+========================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal-left {
+
+    opacity: 0;
+
+    transform: translateX(-60px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal-right {
+
+    opacity: 0;
+
+    transform: translateX(60px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+/* JavaScript adds .active */
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active {
+
+    opacity: 1;
+
+    transform: translate(0, 0);
+
+}
 .stats {
     background: #111;
     color: white;
@@ -473,4 +608,7 @@ footer {
 
 footer p {
     font-size: 13px;
+}
+html {
+    scroll-behavior: smooth;
 }
