@@ -259,6 +259,163 @@ window.addEventListener("scroll", function () {
     }
 
 });
+// ========================================
+// MOBILE NAVIGATION
+// ========================================
+
+const menuButton =
+    document.querySelector(".menu-btn");
+
+const navbar =
+    document.querySelector(".navbar");
+
+const navLinks =
+    document.querySelectorAll(".nav-links a");
+
+
+if (menuButton && navbar) {
+
+    // Open / close mobile menu
+    menuButton.addEventListener("click", function () {
+
+        navbar.classList.toggle("active");
+
+
+        // Change hamburger icon to X
+        const icon =
+            menuButton.querySelector("i");
+
+
+        if (navbar.classList.contains("active")) {
+
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        }
+
+    });
+
+
+    // Close menu after clicking a navigation link
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navbar.classList.remove("active");
+
+
+            const icon =
+                menuButton.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        });
+
+    });
+
+
+    // Reset menu when resizing back to desktop
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 991) {
+
+            navbar.classList.remove("active");
+
+
+            const icon =
+                menuButton.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        }
+
+    });
+
+}
+// ========================================
+// WEB3FORMS CONTACT FORM
+// ========================================
+
+const contactForm =
+    document.getElementById("contact-form");
+
+const formResult =
+    document.getElementById("form-result");
+
+
+contactForm.addEventListener("submit", async function (event) {
+
+    // Prevent normal page reload
+    event.preventDefault();
+
+
+    // Tell user we're sending
+    formResult.textContent = "Sending message...";
+
+
+    // Get all form fields
+    const formData = new FormData(contactForm);
+
+    const object =
+        Object.fromEntries(formData);
+
+    const json =
+        JSON.stringify(object);
+
+
+    try {
+
+        const response = await fetch(
+            "https://api.web3forms.com/submit",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+
+                body: json
+            }
+        );
+
+
+        const data = await response.json();
+
+
+        if (response.ok) {
+
+            formResult.textContent =
+                "Message sent successfully!";
+
+            contactForm.reset();
+
+        } else {
+
+            formResult.textContent =
+                data.message || "Something went wrong.";
+
+        }
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        formResult.textContent =
+            "Unable to send message. Please try again.";
+
+    }
+
+});
+
 
 
 

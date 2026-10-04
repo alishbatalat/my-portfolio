@@ -16,6 +16,7 @@ body {
 
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -611,4 +612,785 @@ footer p {
 }
 html {
     scroll-behavior: smooth;
+}
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+
+/* =========================================================
+   LAPTOP
+   992px - 1199px
+========================================================= */
+
+/* =========================================================
+   LAPTOP RESPONSIVENESS
+   992px - 1199px
+========================================================= */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    /* GENERAL */
+
+    .container {
+        width: 92%;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    section {
+        padding: 90px 0;
+    }
+
+
+    /* NAVBAR */
+
+    .header {
+        padding: 20px 0;
+    }
+
+    .header.scrolled {
+        padding: 14px 0;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        gap: 25px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    /* Keep normal desktop navbar on laptop */
+
+    .menu-btn {
+        display: none;
+    }
+
+    .navbar {
+        position: static;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        opacity: 1;
+        background: transparent;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(60px, 7vw, 80px);
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+
+    /* ABOUT */
+
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 45px;
+        align-items: center;
+    }
+
+    .about-image {
+        width: 100%;
+    }
+
+    .about-content {
+        text-align: left;
+    }
+
+
+    /* SERVICES */
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 40px 20px;
+    }
+
+
+    /* PORTFOLIO */
+
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+
+    /* STATS */
+
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-form {
+        width: 100%;
+        max-width: 750px;
+        margin: 0 auto;
+    }
+
+    .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   768px - 991px
+========================================================= */
+
+@media (max-width: 991px) {
+
+    /* -------------------------
+       GENERAL
+    ------------------------- */
+
+    .container {
+        width: 90%;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    .section-title {
+        margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+
+    /* -------------------------
+       NAVBAR
+    ------------------------- */
+
+    .header {
+        padding: 18px 0;
+        background: rgba(15, 15, 15, 0.95);
+    }
+
+    .header.scrolled {
+        padding: 15px 0;
+    }
+
+    .menu-btn {
+        display: block;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .navbar {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        background: rgba(15, 15, 15, 0.98);
+
+        max-height: 0;
+        overflow: hidden;
+
+        opacity: 0;
+
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease;
+    }
+
+    .navbar.active {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .nav-links {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 0;
+
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 15px 20px;
+
+        width: 100%;
+    }
+
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+    .hero {
+        min-height: 100vh;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(52px, 10vw, 75px);
+    }
+
+    .hero h2 {
+        font-size: 18px;
+
+        letter-spacing: 2px;
+    }
+
+    .hero-small {
+        font-size: 18px;
+    }
+
+
+    /* -------------------------
+       ABOUT
+    ------------------------- */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .about-image {
+        max-width: 600px;
+
+        margin: 0 auto;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .personal-info {
+        text-align: left;
+
+        max-width: 500px;
+
+        margin: 25px auto;
+    }
+
+
+    /* -------------------------
+       SERVICES
+    ------------------------- */
+
+    .services-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 25px;
+    }
+
+
+    /* -------------------------
+       PORTFOLIO
+    ------------------------- */
+
+    .portfolio-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+
+    /* -------------------------
+       STATS
+    ------------------------- */
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 50px 30px;
+    }
+
+
+    /* -------------------------
+       CONTACT
+    ------------------------- */
+
+    .contact-form {
+        max-width: 700px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   481px - 767px
+========================================================= */
+
+@media (max-width: 767px) {
+     html,
+    body {
+        overflow-x: hidden;
+    }
+
+}
+
+    /* -------------------------
+       GENERAL
+    ------------------------- */
+
+    .container {
+        width: 90%;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    .section-title p {
+        font-size: 12px;
+
+        letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+
+    /* -------------------------
+       HEADER
+    ------------------------- */
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .menu-btn {
+        font-size: 22px;
+    }
+
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+    .hero {
+        min-height: 100svh;
+
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero-small {
+        font-size: 15px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: clamp(44px, 15vw, 65px);
+
+        letter-spacing: 3px;
+    }
+
+    .hero h2 {
+        font-size: 16px;
+
+        letter-spacing: 1.5px;
+
+        line-height: 1.6;
+
+        margin-bottom: 30px;
+    }
+
+    .hero-button {
+        padding: 12px 27px;
+
+        font-size: 12px;
+    }
+
+
+    /* -------------------------
+       ABOUT
+    ------------------------- */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .about-content h3 {
+        font-size: 24px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+
+    /* -------------------------
+       SERVICES
+    ------------------------- */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .service-card {
+        padding: 40px 25px;
+    }
+
+
+    /* -------------------------
+       PORTFOLIO
+    ------------------------- */
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .portfolio-filter {
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 9px 15px;
+
+        font-size: 12px;
+    }
+
+
+    /* -------------------------
+       STATS
+    ------------------------- */
+
+    .stats {
+        padding: 65px 0;
+    }
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 45px 20px;
+    }
+
+    .stat h3 {
+        font-size: 30px;
+    }
+
+    .stat p {
+        font-size: 13px;
+    }
+
+
+    /* -------------------------
+       CONTACT
+    ------------------------- */
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 14px;
+
+        font-size: 14px;
+    }
+
+    .contact-form button {
+        width: 100%;
+
+        padding: 15px 20px;
+    }
+
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+    footer {
+        padding: 40px 0;
+    }
+
+    .social-links a {
+        margin: 0 8px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   480px and below
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: 92%;
+    }
+
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+    .hero-small {
+        font-size: 13px;
+
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+
+        letter-spacing: 2px;
+    }
+
+    .hero h2 {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .hero-button {
+        padding: 11px 22px;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* -------------------------
+       SECTION TITLES
+    ------------------------- */
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+
+    /* -------------------------
+       ABOUT
+    ------------------------- */
+
+    .about-content h3 {
+        font-size: 21px;
+    }
+
+    .personal-info {
+        font-size: 13px;
+    }
+
+
+    /* -------------------------
+       SERVICE CARDS
+    ------------------------- */
+
+    .service-card {
+        padding: 35px 20px;
+    }
+
+    .service-card i {
+        font-size: 35px;
+    }
+
+
+    /* -------------------------
+       STATS
+    ------------------------- */
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+
+    /* -------------------------
+       PORTFOLIO
+    ------------------------- */
+
+    .portfolio-overlay {
+        inset: 12px;
+    }
+
+
+    /* -------------------------
+       CONTACT
+    ------------------------- */
+
+    .contact-form button {
+        font-size: 12px;
+    }
+
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+    footer p {
+        font-size: 11px;
+
+        padding: 0 10px;
+    }
+
+}
+/* =========================================================
+   LARGE LAPTOP RESPONSIVENESS
+   For screens like 1504px
+========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+
+    /* CONTAINER */
+    .container {
+        width: 88%;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+
+    /* HEADER / NAVBAR */
+    .header {
+        padding: 22px 0;
+    }
+
+    .header.scrolled {
+        padding: 14px 0;
+    }
+
+    .nav-links {
+        gap: 30px;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+
+    /* HERO */
+    .hero-content {
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 72px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+
+    /* ABOUT */
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+
+
+    /* SERVICES */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+
+    /* STATS */
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+
+    /* CONTACT */
+    .contact-form {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 }

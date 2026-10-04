@@ -51,18 +51,17 @@
             </ul>
 
         </nav>
-        <button class="menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
- 
-
-    </div>
+        
 
 </header>
 
-        <button class="menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+       <button
+    class="menu-btn"
+    type="button"
+    aria-label="Toggle navigation menu"
+>
+    <i class="fa-solid fa-bars"></i>
+</button> 
 
     </div>
 
@@ -470,6 +469,7 @@
 
     <div class="container">
 
+        <!-- Contact Section Title -->
         <div class="section-title">
 
             <p>Get In Touch</p>
@@ -479,41 +479,74 @@
         </div>
 
 
-        <form class="contact-form">
+        <!-- Web3Forms Contact Form -->
+        <form class="contact-form" id="contact-form">
+
+            <!-- Web3Forms Access Key -->
+            <input
+                type="hidden"
+                name="access_key"
+                value="69578469-8413-4c39-9812-bce2c01b9ed9"
+            >
+
+
+            <!-- Email Subject -->
+            <input
+                type="hidden"
+                name="subject"
+                value="New Portfolio Contact Message"
+            >
+
+
+            <!-- Spam Protection -->
+            <input
+                type="checkbox"
+                name="botcheck"
+                style="display: none;"
+            >
 
 
             <div class="form-row">
 
                 <input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
-                    required>
-
+                    required
+                >
 
                 <input
                     type="email"
+                    name="email"
                     placeholder="Your Email"
-                    required>
+                    required
+                >
 
             </div>
 
 
             <input
                 type="text"
-                placeholder="Subject">
+                name="subject_message"
+                placeholder="Subject"
+            >
 
 
             <textarea
+                name="message"
                 rows="7"
                 placeholder="Your Message"
-                required>
-            </textarea>
+                required
+            ></textarea>
 
 
             <button type="submit">
                 Send Message
             </button>
 
+
+            <!-- Form Response Message -->
+            <p id="form-result"></p>
 
         </form>
 
@@ -551,15 +584,7 @@
     </div>
 
 </footer>
-<footer>
 
-    <div class="container">
-
-        ...
-
-    </div>
-
-</footer>
 
 
 <!-- Back to top button -->
